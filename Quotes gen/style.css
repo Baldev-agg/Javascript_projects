@@ -83,7 +83,7 @@ hr {
     font-weight: bold;
     color: white;
     /* background-image: linear-gradient(to right bottom, rgb(241, 0, 0), #ffedbca8); */
-    background-image: linear-gradient(to right bottom, rgb(255, 16, 56),orange);
+    background-image: linear-gradient(to right bottom, sky-blue,orange);
 
 }
 .container:hover

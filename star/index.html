@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Star Rating</title>
+  <style>
+    .star-rating {
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .active {
+      color: gold;
+    }
+
+    .inactive {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div id="starRating"></div>
+
+<script>
+  function createStarRating(noOfStars) {
+    const starRatingContainer = document.getElementById('starRating');
+
+    for (let index = 1; index <= noOfStars; index++) {
+      const star = document.createElement('span');
+      star.innerHTML = '★';
+      star.className = 'star-rating';
+      star.addEventListener('mouseover', handleMouseOver);
+      star.addEventListener('mouseout', handleMouseOut);
+      star.addEventListener('click', handleStarClick);
+
+      starRatingContainer.appendChild(star);
+    }
+  }
+
+  function handleMouseOver(event) {
+    const stars = document.querySelectorAll('.star-rating');
+    const currentIndex = Array.from(stars).indexOf(event.target);
+
+    for (let i = 0; i <= currentIndex; i++) {
+      stars[i].classList.add('active');
+    }
+
+    for (let i = currentIndex + 1; i < stars.length; i++) {
+      stars[i].classList.remove('active');
+    }
+  }
+
+  function handleMouseOut() {
+    const stars = document.querySelectorAll('.star-rating');
+    stars.forEach(star => star.classList.remove('active'));
+  }
+
+  function handleStarClick(event) {
+    const stars = document.querySelectorAll('.star-rating');
+    const currentIndex = Array.from(stars).indexOf(event.target);
+
+    for (let i = 0; i <= currentIndex; i++) {
+      stars[i].classList.add('active');
+    }
+
+    for (let i = currentIndex + 1; i < stars.length; i++) {
+      stars[i].classList.remove('active');
+    }
+  }
+
+  createStarRating(5); // Change the parameter to set the number of stars
+</script>
+
+</body>
+</html>
